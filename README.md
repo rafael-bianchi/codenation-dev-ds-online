@@ -6,3 +6,4 @@
 
 * [Semana #2](data-science-0) - Pré-processamento de dados em Python
 * [Semana #3](coestatistica-1) - Análise exploratória de dados
+* [Semana #4](data-science-1) - Funções de probabilidade
