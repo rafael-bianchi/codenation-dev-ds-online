@@ -51,11 +51,6 @@ for col in appended_datasets.columns:
 
 appended_datasets = pd.get_dummies(appended_datasets, columns=category_columns, drop_first=True)
 
-
-#%% Normalização
-scaler = StandardScaler()
-appended_datasets[appended_datasets.columns[appended_datasets.columns != 'NU_INSCRICAO']] = scaler.fit_transform(appended_datasets[appended_datasets.columns[appended_datasets.columns != 'NU_INSCRICAO']])
-
 # %% Separando treino e teste
 train_data = pd.merge(Y[['NU_INSCRICAO']], appended_datasets, how='inner', on=['NU_INSCRICAO'])
 test_data = pd.merge(test_student_ids[['NU_INSCRICAO']], appended_datasets, how='inner', on=['NU_INSCRICAO'])
@@ -64,6 +59,10 @@ train_data.drop(['NU_INSCRICAO'], axis=1, inplace=True)
 test_data.drop(['NU_INSCRICAO'], axis=1, inplace=True)
 
 Y = Y['NU_NOTA_MT']
+#%% Normalização
+scaler = StandardScaler()
+train_data = scaler.fit_transform( train_data )
+test_data = scaler.transform( test_data )
 
 #%% Predição e output
 # Parametros do RandomForestRegressor obtidos através do GridSearch
