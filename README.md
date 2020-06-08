@@ -10,3 +10,4 @@
 * [Semana #5](data-science-2) - Funções de probabilidade
 * [Semana #6](data-science-3) - Redução de dimensionalidade e seleção de variáveis
 * [Semana #7](enem-2) - Prever nota de matemática do ENEM
+* [Semana #8](enem-4) - Descubra quem fez o ENEM 2016 apenas para treino
